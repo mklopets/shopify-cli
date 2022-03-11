@@ -15,14 +15,14 @@ module Extension
           binary_installed? && type_supported?(type) && beta_enabled?
         end
 
+        def type_supported?(type)
+          SUPPORTED_EXTENSION_TYPES.include?(type.downcase)
+        end
+
         private
 
         def binary_installed?
           Models::DevelopmentServer.new.executable_installed?
-        end
-
-        def type_supported?(type)
-          SUPPORTED_EXTENSION_TYPES.include?(type.downcase)
         end
 
         def beta_enabled?
