@@ -36,3 +36,13 @@ delivery_discount_types:
       repo: "https://github.com/Shopify/scripts-apis-examples"
     wasm:
       repo: "https://github.com/Shopify/scripts-apis-examples"
+cart_restrictions:
+  beta: true
+  domain: 'cart'
+  libraries:
+    typescript:
+      beta: true
+      package: "@shopify/scripts-discounts-apis"
+      repo: "https://github.com/Shopify/scripts-apis-examples"
+    wasm:
+      repo: "https://github.com/Shopify/scripts-apis-examples"
