@@ -41,7 +41,7 @@ module Extension
           context.root = File.join(context.root, directory_name)
           FileUtils.makedirs(context.root)
 
-          create_file(context, File.join(context.root, CONFIG_FILE), "{\"sandboxed\": true}")
+          create_file(context, File.join(context.root, CONFIG_FILE), "{\"runtime_context\": \"sandbox\"}")
           create_file(context, File.join(context.root, SCRIPT_FILE))
         rescue
           context.abort(context.message("features.argo.script_prepare_error"))
@@ -55,7 +55,7 @@ module Extension
             File.read(file_path).chomp
           end
           {
-            sandboxed: ext_config.fetch("sandboxed", true),
+            runtime_context: ext_config.fetch("runtime_context"),
             serialized_script: Base64.strict_encode64(script_contents),
           }
         rescue StandardError
